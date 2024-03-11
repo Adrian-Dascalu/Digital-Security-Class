@@ -5,12 +5,22 @@
 
 int main()
 {
-    char message[100] = "AZI ESTE MIERCURI";
-    char key[100] = "LUNI";
+    //char message[100] = "AZI ESTE MIERCURI";
+    //char key[100] = "LUNI";
 
-    int i, j, keyLength, messageLength;
+    char message[100], key[100];
 
-    char newKey[100], encryptedMessage[100], decryptedMessage[100];
+    printf("Enter the message: ");
+    scanf("%[^\n]s", message);
+    getchar();
+
+    printf("Enter the key: ");
+    scanf("%[^\n]s", key);
+    getchar();
+
+    int i, j;
+
+    char newKey[100], encryptedMessage[100];
 
     j = 0;
 
@@ -38,10 +48,7 @@ int main()
     //printf("%s\n", message);
     //printf("%s\n", newKey);
 
-    keyLength = strlen(newKey);
-    messageLength = strlen(message);
-
-    for(i = 0; i < messageLength; i++)
+    for(i = 0; message[i] != '\0'; i++)
     {
         if(message[i] == ' ')
         {
@@ -52,34 +59,16 @@ int main()
         {
             encryptedMessage[i] = ((message[i] + newKey[i]) % 26) + 'a';
         }
-        else
+        else if(message[i] >= 'A' && message[i] <= 'Z')
         {
             encryptedMessage[i] = ((message[i] + newKey[i]) % 26) + 'A';
         }
     }
+
     encryptedMessage[i] = '\0';
 
     printf("Encrypted message: %s\n", encryptedMessage);
-
-    for(i = 0; i < messageLength; i++)
-    {
-        if(encryptedMessage[i] == ' ')
-        {
-            decryptedMessage[i] = ' ';
-            continue;
-        }
-        else if(encryptedMessage[i] >= 'a' && encryptedMessage[i] <= 'z')
-        {
-            decryptedMessage[i] = (((encryptedMessage[i] - newKey[i]) + 26) % 26) + 'a';
-        }
-        else if(encryptedMessage[i] >= 'A' && encryptedMessage[i] <= 'Z')
-        {
-            decryptedMessage[i] = (((encryptedMessage[i] - newKey[i]) + 26) % 26) + 'A';
-        }
-    }
-    decryptedMessage[i] = '\0';
-
-    printf("Decrypted message: %s\n", decryptedMessage);
+    printf("New key: %s\n", newKey);
 
     return 0;
 }
