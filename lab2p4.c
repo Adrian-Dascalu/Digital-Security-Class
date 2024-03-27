@@ -5,7 +5,7 @@
 
 int main()
 {
-    char key[100] = {0}, encryptedMessage[100] = "GVGVGV XAXAXA GXGXGX VFVFVF", decryptedMessage[100] = {0};
+    char key[100] = {0}, encryptedMessage[100] = "GVGVGVGVGVGVGVGVGVGV XAXAXAXAXAXAXAXAXAXA GXGXGXGXGXGXGXGXGXGX VFVFVFVFVFVFVFVFVFVF", decryptedMessage[100] = {0};
 
     printf("Enter the key: ");
     scanf("%[^\n]s", key);
