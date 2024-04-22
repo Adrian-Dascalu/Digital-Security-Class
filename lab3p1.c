@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void fp1(char message[], int (*p1)[])
+void fp1(char message[], int (*p1)[8])
 {
     char temp[8] = {0};
 
